@@ -64,9 +64,8 @@ class SomeCommands(commands.Cog):
         await ctx.send (embed=embed)
 
     @commands.command()
-    async def avatar(self, ctx, *, avamember : discord.Member=None):
-        if avamember == None:
-            avamember = ctx.author
+    async def avatar(self, ctx, *, avamember : discord.Member=None) -> None:
+        avamember = avamember or ctx.author
         embed=discord.Embed (title=f"{avamember.display_name}\'s Avatar")
         embed.set_image(url=avamember.avatar_url)
         await ctx.send (embed=embed)
